@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5E48FD0B-6F55-88C5-375B-8C5C9E9EB342" name="users_meetings">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<ordsAlias>relation_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="meeting_appDateIni" id="E585E440-0770-270A-41C4-F65AE9E3EE84">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C6B91792-EDA4-21AD-42EE-BB84523A0548" referredColumn="42A81ADF-09AC-893F-6C31-676805883283"/>
+</associations>
+</Column>
+<Column name="meeting_id" id="7AF35427-F2F0-1564-4D36-979537CEAAF1">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C6B91792-EDA4-21AD-42EE-BB84523A0548" referredColumn="C26EA3B3-63EA-8DB8-0540-34E57BFAE708"/>
+</associations>
+</Column>
+<Column name="user_id" id="4FE77355-6193-0BCD-A3D5-3379557C089C">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0BC5D97D-F30D-5941-0DF1-7CA105EB7849" referredColumn="56DCCC2F-A592-EED3-FFB2-592C62FE1569"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AD1A9B4C-1D79-CD32-182F-EAB447352EC0" name="Relation_2_PK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E585E440-0770-270A-41C4-F65AE9E3EE84"/>
+<colUsage columnID="7AF35427-F2F0-1564-4D36-979537CEAAF1"/>
+<colUsage columnID="4FE77355-6193-0BCD-A3D5-3379557C089C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="319CA8F3-8093-E4B7-0AF5-2CD6C9A604AA" name="Relation_2_meetings_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>CD0086B8-524C-42DE-F699-CE2510524A31</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E585E440-0770-270A-41C4-F65AE9E3EE84"/>
+<colUsage columnID="7AF35427-F2F0-1564-4D36-979537CEAAF1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BFDDA429-5625-9356-8D55-8FAB41BB8CB8" name="Relation_2_users_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>CD0086B8-524C-42DE-F699-CE2510524A31</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4FE77355-6193-0BCD-A3D5-3379557C089C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

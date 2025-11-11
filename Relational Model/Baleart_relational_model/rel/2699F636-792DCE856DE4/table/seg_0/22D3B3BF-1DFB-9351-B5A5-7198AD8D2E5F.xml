@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="22D3B3BF-1DFB-9351-B5A5-7198AD8D2E5F" name="meetings">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>6051EDA3-E8DA-1EB7-982C-7FB2F86650AC</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="trek_id" id="C26EA3B3-63EA-8DB8-0540-34E57BFAE708">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>2FA82072-C77A-3773-AFB7-8101A473297C</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="368F69FF-DD7E-781C-E5DC-F589B7594D23" referredColumn="A5E733D3-B126-514B-CA2C-FAD1AA460542"/>
+</associations>
+</Column>
+<Column name="appDateIni" id="42A81ADF-09AC-893F-6C31-676805883283">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>A6A07DC2-0A55-CB39-62FE-D84685C638E1</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="appDateEnd" id="6EC54315-BD9A-BB2B-82AA-DCDB2035DFE8">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>DB6C7F2E-0C0F-51DD-FF2B-6256A4B1E1D3</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="user_id" id="D785B4C5-E8EB-9A30-6670-A4E083443F03">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>1960461B-5118-3EC3-831E-17858748E310</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CE61FBEE-C679-90DB-AF07-186E56B67D1F" referredColumn="56DCCC2F-A592-EED3-FFB2-592C62FE1569"/>
+</associations>
+</Column>
+<Column name="day" id="56AEF490-A529-00C8-EA8F-D4B8E7B6074F">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>C20161B2-47CE-74F1-3F47-40801EF452D5</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<dependOnForeignKeyID>368F69FF-DD7E-781C-E5DC-F589B7594D23</dependOnForeignKeyID>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="hour" id="42D00E60-B426-2F9A-A416-CA7E3041A44F">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>7A8A2658-3CE2-3C90-5D4E-55C347DC4E49</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<dependOnForeignKeyID>368F69FF-DD7E-781C-E5DC-F589B7594D23</dependOnForeignKeyID>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="93B304B1-48F4-12CD-CA7E-AF607FF39FC8" name="meetings_PK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>A09E11BC-0CB0-76AD-B2A9-204D62FF9808</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="42A81ADF-09AC-893F-6C31-676805883283"/>
+<colUsage columnID="C26EA3B3-63EA-8DB8-0540-34E57BFAE708"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="12BE3CDA-0E9B-9B7D-309D-2BA0DDE843A1" name="meetings__IDX">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>4F179B79-A261-C673-38BD-A6E0B903B6FE</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="D785B4C5-E8EB-9A30-6670-A4E083443F03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="950375FD-A6C2-DF0B-4308-245F21B9D6B0" name="meetings_users_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>4F179B79-A261-C673-38BD-A6E0B903B6FE</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D785B4C5-E8EB-9A30-6670-A4E083443F03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A280590F-A9F1-F303-D9A7-2CD0FAAE36BC" name="meetings_treks_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>83B12CE0-E9CB-E959-FE62-F9E631C49CD7</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C26EA3B3-63EA-8DB8-0540-34E57BFAE708"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

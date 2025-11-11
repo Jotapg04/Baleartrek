@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="61818CF7-5E5C-F063-5322-BB13555AAF0C" name="treks_interesting_places">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<ordsAlias>relation_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="trek_id" id="7127EC27-5B09-9FCB-BE7B-B2C42619AFB0">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7D6BF967-31E3-B568-D6EE-253DA24C4108" referredColumn="A5E733D3-B126-514B-CA2C-FAD1AA460542"/>
+</associations>
+</Column>
+<Column name="interesting_place_id" id="AD183C92-7EE2-EC82-256B-890282600858">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C4BD4D2F-CFE7-CCB3-C840-3E51CAFC28E3" referredColumn="8CBBF153-98D9-7C3E-2FB0-816FE2E91F66"/>
+</associations>
+</Column>
+<Column name="order" id="72BAC8C8-44E3-3EE8-B91D-ABDB123B166E">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>4FF7D3B1-FA3E-1091-3C4A-7CAA3ADDE35D</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1C3F4798-ED25-982E-DC6E-C08E6E8EEFAD" name="Relation_1_PK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7127EC27-5B09-9FCB-BE7B-B2C42619AFB0"/>
+<colUsage columnID="AD183C92-7EE2-EC82-256B-890282600858"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3D27A80-CE88-D5D0-79A4-72752C680144" name="Relation_1_treks_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>6ED72E65-0774-1968-5DD9-4B537F3B15C9</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7127EC27-5B09-9FCB-BE7B-B2C42619AFB0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FA0A203B-71E3-3698-EE63-941AA69CF356" name="Relation_1_interesting_places_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>6ED72E65-0774-1968-5DD9-4B537F3B15C9</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD183C92-7EE2-EC82-256B-890282600858"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

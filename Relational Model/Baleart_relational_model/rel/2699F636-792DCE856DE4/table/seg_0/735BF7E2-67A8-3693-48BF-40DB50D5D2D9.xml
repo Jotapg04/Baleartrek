@@ -1,0 +1,216 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="735BF7E2-67A8-3693-48BF-40DB50D5D2D9" name="users">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>6E963C05-4B0A-2138-E598-77FD0EE1E797</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="56DCCC2F-A592-EED3-FFB2-592C62FE1569">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>B5487A8E-79BE-4FF7-F494-DD7EC9060618</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="9E244536-2AE3-FA45-8E86-12547175E487">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>6FF8869D-D1C1-5501-6E67-BE51463D21AB</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lastName" id="C0DF36BC-BA10-C53B-9A15-5CF2AC2785EC">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>A279ED93-9D76-A49C-9DBD-3BD9EFC8DAC8</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dni" id="2570F424-BA66-2972-DF19-201DB9513684">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>5E7D554C-5A99-327F-B308-E8252E23DD59</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="27BFA91A-A156-1F78-0DE3-E43D36864DCD">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>04104DC4-350C-BEFD-C8C8-2C0DDEDF5996</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email_verified_at" id="C319323F-8006-A2CC-0FDD-A50F6133DDC7">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>BE002E3D-D3C2-C2A4-4757-9CCDF72099D9</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone" id="527E3819-B5B3-0249-DA55-58440676E83D">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>124409F7-4373-BC45-06C3-CC1BEF7820C9</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="passwd" id="7DC52FE0-C8C4-1503-C575-3C75CE174514">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>798F4AB7-6155-6380-6158-545094F7E774</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rol_id" id="25BD9A98-3430-CFBB-6B1B-BF054F9CFBA2">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>9CB0411D-893C-05D4-6A25-885667A5FF57</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7E245C42-F862-3811-4BE4-96C13BBA810E" referredColumn="907C7113-E091-E701-5060-50F247EA63DC"/>
+</associations>
+</Column>
+<Column name="meeting_appDateIni" id="EB2B4FC2-3EEF-365E-CE1B-EC6A791C21FE">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>920954FB-BCFC-CEE3-B003-B303E2C22273</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="500B5A45-9DF2-2B57-F014-0CEDB3DDB4B9" referredColumn="42A81ADF-09AC-893F-6C31-676805883283"/>
+</associations>
+</Column>
+<Column name="meeting_id" id="862AAAB3-59EE-FCBA-35AB-3AC835ACD573">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>43E21D8B-9AB4-E7E3-AB97-EBD4014E9CCD</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="500B5A45-9DF2-2B57-F014-0CEDB3DDB4B9" referredColumn="C26EA3B3-63EA-8DB8-0540-34E57BFAE708"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="174D16B0-524A-C68A-1ED5-A7D78225A089" name="users_PK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>0E0D097E-A824-BA98-3229-820BE1BF4E2D</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="56DCCC2F-A592-EED3-FFB2-592C62FE1569"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="67AA4FC8-BC86-2AD3-2EB9-80CD0E199327" name="users_email_UN">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>2331593A-C483-CDCB-4ED0-A78B0BE1D640</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="27BFA91A-A156-1F78-0DE3-E43D36864DCD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="853A71E3-004B-297E-AAC4-37E5FA24AF1A" name="users_dni_UN">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>015D572C-BEA5-BECE-57E6-FC048B7D6D9F</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2570F424-BA66-2972-DF19-201DB9513684"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C1328889-DD2C-EFBE-0750-5BA52F29C452" name="users__IDX">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>4F179B79-A261-C673-38BD-A6E0B903B6FE</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="EB2B4FC2-3EEF-365E-CE1B-EC6A791C21FE"/>
+<colUsage columnID="862AAAB3-59EE-FCBA-35AB-3AC835ACD573"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC64E812-6499-D1B8-AE80-7339D486BB6A" name="users_meetings_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>4F179B79-A261-C673-38BD-A6E0B903B6FE</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EB2B4FC2-3EEF-365E-CE1B-EC6A791C21FE"/>
+<colUsage columnID="862AAAB3-59EE-FCBA-35AB-3AC835ACD573"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC053F8E-E1C6-7E9C-8938-1F75E3628DAA" name="users_roles_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>EEE50B5F-E34B-C2D2-197A-20414474712A</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25BD9A98-3430-CFBB-6B1B-BF054F9CFBA2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

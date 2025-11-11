@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B6B4D73A-91AA-3641-F888-CC4C5F372995" name="images">
+<createdBy>Administrador</createdBy>
+<createdTime>2025-11-06 10:33:58 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="0535DF04-3549-3DBE-DD8B-E88131E97A62">
+<createdBy>Administrador</createdBy>
+<createdTime>2025-11-06 10:34:34 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="url" id="65EF0098-B519-AB45-0A57-8A49F2CF7269">
+<createdBy>Administrador</createdBy>
+<createdTime>2025-11-06 10:34:42 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="FE69EE56-50D7-93AA-CB32-1E26AAFD197C">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:22:45 UTC</createdTime>
+<generatorID>96C6170D-0CF6-F1C1-C017-5E0C43E027F8</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<referedAttribute>5DC3DFB7-B689-DA4F-A653-EB3514F85A41</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="777E1393-5777-30EF-2F20-81CFE06DDC1E" name="IMAGES PK">
+<createdBy>Administrador</createdBy>
+<createdTime>2025-11-06 10:34:40 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0535DF04-3549-3DBE-DD8B-E88131E97A62</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

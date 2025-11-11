@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1C28DB12-21EC-493D-FBDE-94FC01E19AD4" name="islands">
+<createdBy>Administrador</createdBy>
+<createdTime>2025-11-06 12:33:53 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="B56497E9-4B68-35D4-E0B0-4C10034A1B8D">
+<createdBy>Administrador</createdBy>
+<createdTime>2025-11-06 12:38:03 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="9A397B89-D60A-4565-A094-03C7C04A4D89">
+<createdBy>Administrador</createdBy>
+<createdTime>2025-11-06 12:38:07 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8D4DCC7F-E84C-6651-BFB7-93A60AF355EA" name="ISLANDS PK">
+<createdBy>Administrador</createdBy>
+<createdTime>2025-11-06 12:38:06 UTC</createdTime>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<engineerTo>
+<item key="2699F636-1F82-53B0-2A4F-792DCE856DE4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B56497E9-4B68-35D4-E0B0-4C10034A1B8D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

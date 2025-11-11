@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1A254E5F-839D-A4A4-8881-2F46559E66C9" containerWithKeyObject="D700DE6F-BAB8-EAAA-2ABD-19BCCD0500B8" localFKIndex="A2528B9E-FDDF-592B-DBBA-8A716322DF96" name="interesting_places_place_types_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>9B3A8A75-22C0-BE45-DA61-78D5FE9A86A8</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<referredTableLongName>place_types</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DE93751D-C0FE-9F20-82A7-47BD53E4A084</referredTableID>
+<keyObject>50B35711-D3AB-CEC5-A7E8-F1D79A13BED7</keyObject>
+<referredKeyID>50B35711-D3AB-CEC5-A7E8-F1D79A13BED7</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

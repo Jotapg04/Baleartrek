@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C6B91792-EDA4-21AD-42EE-BB84523A0548" containerWithKeyObject="5E48FD0B-6F55-88C5-375B-8C5C9E9EB342" localFKIndex="319CA8F3-8093-E4B7-0AF5-2CD6C9A604AA" name="Relation_2_meetings_FK">
+<createdBy>jessi</createdBy>
+<createdTime>2025-11-11 15:25:26 UTC</createdTime>
+<generatorID>CD0086B8-524C-42DE-F699-CE2510524A31</generatorID>
+<ownerDesignName>Baleart_relational_model</ownerDesignName>
+<referredTableLongName>meetings</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>22D3B3BF-1DFB-9351-B5A5-7198AD8D2E5F</referredTableID>
+<keyObject>93B304B1-48F4-12CD-CA7E-AF607FF39FC8</keyObject>
+<referredKeyID>93B304B1-48F4-12CD-CA7E-AF607FF39FC8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>appDateIni,trek_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
