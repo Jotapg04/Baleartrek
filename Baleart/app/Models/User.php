@@ -18,9 +18,13 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'first_name', 
+        'last_name', 
+        'dni',
+        'phone',
         'email',
         'password',
+        'role_id'
     ];
 
     /**
@@ -32,6 +36,32 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+    /* Relaciones */
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    // meetings en los que participa como excursionista
+    public function meetings()
+    {
+        return $this->belongsToMany(Meeting::class);
+    }
+
+    // meetings donde actúa como guía responsable
+    public function meetingsAsResponsible()
+    {
+        return $this->hasMany(Meeting::class, 'guide_responsible_id');
+    }
+
 
     /**
      * Get the attributes that should be cast.

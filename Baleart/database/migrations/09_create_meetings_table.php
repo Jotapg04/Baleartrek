@@ -10,6 +10,10 @@ return new class extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('trek_id')->constrained('treks')->onDelete('cascade');
+            $table->foreignId('guide_responsible_id')->constrained('users')->onDelete('cascade');
+            $table->date('day');
+            $table->time('time');
             $table->timestamps();
         });
     }

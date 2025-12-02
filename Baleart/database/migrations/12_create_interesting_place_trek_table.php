@@ -10,6 +10,9 @@ return new class extends Migration
     {
         Schema::create('interesting_place_trek', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('trek_id')->constrained('treks')->onDelete('cascade');
+            $table->foreignId('interesting_place_id')->constrained('interesting_places')->onDelete('cascade');
+            $table->integer('order')->nullable(); 
             $table->timestamps();
         });
     }

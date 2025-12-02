@@ -10,6 +10,10 @@ return new class extends Migration
     {
         Schema::create('treks', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('reg_number')->unique();
+            $table->foreignId('municipality_id')->constrained('municipalities')->onDelete('cascade');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

@@ -10,6 +10,11 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->text('comment');
+            $table->tinyInteger('score')->default(0); //valores de 0-5
+            $table->enum('status', ['y','n'])->default('n'); // validación admin
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('meeting_id')->constrained('meetings')->onDelete('cascade');
             $table->timestamps();
         });
     }
