@@ -21,9 +21,10 @@ class Trek extends Model
     }
 
     public function interestingPlaces()
-    {
-        return $this->belongsToMany(InterestingPlace::class);
-    }
+{
+    return $this->belongsToMany(InterestingPlace::class, 'interesting_place_trek')->withPivot('order')->withTimestamps();
+}
+
 
     public function meetings()
     {

@@ -23,6 +23,6 @@ class InterestingPlace extends Model
 
     public function treks()
     {
-        return $this->belongsToMany(Trek::class);
+        return $this->belongsToMany(Trek::class, 'interesting_place_trek')->withPivot('order')->withTimestamps();
     }
 }

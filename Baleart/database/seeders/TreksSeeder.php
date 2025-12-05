@@ -35,13 +35,13 @@ class TreksSeeder extends Seeder
                     'trek_id' => $trek->id,
                     'day' => $m['day'],
                     'time' => $m['time'],
-                    'DNI' => $m['DNI'],
+                    'guide_responsible_id' => User::where('dni', $m['DNI'])->first()->id,
                 ]);
 
                 foreach ($m['comments'] as $c) {
                     Comment::create([
                         'meeting_id' => $meeting->id,
-                        'DNI' => $c['DNI'],
+                        'user_id' => User::where('dni', $c['DNI'])->first()->id,
                         'comment' => $c['comment'],
                         'score' => $c['score'],
                     ]);
