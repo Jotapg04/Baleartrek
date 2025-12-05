@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('meeting_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('meeting_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
-            $table->foreignId('user_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('meeting_id')->constrained('meetings')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }

@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('trek_id')->constrained('treks')->onDelete('cascade');
-            $table->foreignId('guide_responsible_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('trek_id')->constrained('treks')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('guide_responsible_id')->constrained('users')->onUpdate('restrict')->onDelete('restrict');
             $table->date('day');
             $table->time('time');
             $table->timestamps();

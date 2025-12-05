@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('reg_number')->unique();
-            $table->foreignId('municipality_id')->constrained('municipalities')->onDelete('cascade');
+            $table->foreignId('municipality_id')->constrained('municipalities')->onUpdate('restrict')->onDelete('restrict');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

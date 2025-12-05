@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('gps')->unique();
             $table->string('name');
-            $table->foreignId('place_type_id')->constrained('places_types')->onDelete('cascade');
+            $table->foreignId('place_type')->constrained('place_types')->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }

@@ -14,11 +14,10 @@ return new class extends Migration
             $table->string('lastName');
             $table->string('dni')->unique();
             $table->string('email')->unique();
-            $table->date('email_verified_at');
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('phone');
-            $table->string('passwd');
-            $table->foreignId('rol_id')->constrained('roles')->onDelete('cascade');
-            $table->foreignId('meeting_id')->constrained('zones')->onDelete('cascade');
+            $table->string('password');
+            $table->foreignId('role')->constrained('roles')->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }

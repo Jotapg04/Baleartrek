@@ -11,8 +11,8 @@ return new class extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('island_id')->constrained('islands')->onDelete('cascade');
-            $table->foreignId('zone_id')->constrained('zones')->onDelete('cascade');
+            $table->foreignId('island_id')->constrained('islands')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('zone_id')->constrained('zones')->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }
