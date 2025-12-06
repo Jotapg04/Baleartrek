@@ -15,7 +15,7 @@ class PlacesSeeder extends Seeder
         $data = json_decode($jsonData, true);
 
         foreach ($data as $t) {
-            // Buscar el trek por reg_number correcto
+            
             $reg_number = $t['regNumber'];
             $trek = Trek::where('reg_number', $reg_number)->first();
 
@@ -26,15 +26,13 @@ class PlacesSeeder extends Seeder
                     'name' => $p['type']
                 ]);
 
-                // Evitar duplicados en interesting_places por GPS
                 $interestingPlace = InterestingPlace::firstOrCreate([
                     'gps' => $p['gpsPos']
                 ], [
                     'name' => $p['name'],
                     'place_type_id' => $placeType->id
                 ]);
-
-                // Asociar con el trek en la tabla pivote
+                
                 $trek->interestingPlaces()->syncWithoutDetaching([
                     $interestingPlace->id => ['order' => $p['order'] ?? null]
                 ]);

@@ -8,6 +8,6 @@ class ImagesSeeder extends Seeder
 {
     public function run(): void
     {
-        // Código para poblar la base de datos
+        
     }
 }

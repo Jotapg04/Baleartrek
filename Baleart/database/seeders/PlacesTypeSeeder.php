@@ -9,7 +9,7 @@ class PlacesTypeSeeder extends Seeder
 {
     public function run(): void
     {
-        // Leer el JSON de places
+    
         $jsonData = file_get_contents('c:\\temp\\baleartrek\\places.json');
         $data = json_decode($jsonData, true);
 

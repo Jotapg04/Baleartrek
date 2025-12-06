@@ -23,8 +23,6 @@ class ZonesSeeder extends Seeder
             $newZone->save();
         }
 
-        //Desde el JSON
-
         $jsonData = file_get_contents('c:\\temp\\baleartrek\\zones.json');
         $data = json_decode($jsonData, true);
 

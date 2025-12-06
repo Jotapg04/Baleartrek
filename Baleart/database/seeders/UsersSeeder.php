@@ -24,8 +24,6 @@ class UsersSeeder extends Seeder
         $user->role_id =  Role::where('name', 'admin')->first()->id;
         $user->save();
 
-
-        //Guias desde un JSON
         $jsonData = file_get_contents('c:\\temp\\baleartrek\\users.json');
         $data = json_decode($jsonData, true);
 

@@ -14,10 +14,9 @@ class MeetingUserSeeder extends Seeder
         $users = User::all();
 
         foreach ($meetings as $meeting) {
-            // Elegimos 20 usuarios aleatorios (o todos si hay menos de 20)
+            
             $selectedUsers = $users->random(min(20, $users->count()));
 
-            // Asociamos los usuarios al meeting sin duplicar
             foreach ($selectedUsers as $user) {
                 $meeting->users()->attach($user->id);
             }

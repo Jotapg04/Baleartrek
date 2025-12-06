@@ -23,8 +23,6 @@ class IslandsSeeder extends Seeder
             $newIsland->save();
         }
 
-        //Con un JSON
-
         $jsonData = file_get_contents('c:\\temp\\baleartrek\\islands.json');
         $data = json_decode($jsonData, true);
 
