@@ -17,7 +17,8 @@ class PlacesSeeder extends Seeder
         foreach ($data as $t) {
             // Buscar el trek por reg_number correcto
             $reg_number = $t['regNumber'];
-            $trek = Trek::where('reg_number', $reg_number)->first()->id;
+            $trek = Trek::where('reg_number', $reg_number)->first();
+
 
             foreach ($t['places_of_interest'] as $p) {
                 
@@ -30,7 +31,7 @@ class PlacesSeeder extends Seeder
                     'gps' => $p['gpsPos']
                 ], [
                     'name' => $p['name'],
-                    'place_type' => $placeType->id
+                    'place_type_id' => $placeType->id
                 ]);
 
                 // Asociar con el trek en la tabla pivote

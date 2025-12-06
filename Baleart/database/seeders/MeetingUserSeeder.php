@@ -10,22 +10,16 @@ class MeetingUserSeeder extends Seeder
 {
     public function run(): void
     {
-        // Obtenemos todos los meetings
         $meetings = Meeting::all();
-
-        // Obtenemos todos los usuarios de tipo 'visitant'
-        $visitants = User::where('role', 'visitant')->get();
+        $users = User::all();
 
         foreach ($meetings as $meeting) {
             // Elegimos 20 usuarios aleatorios (o todos si hay menos de 20)
-            $selectedVisitants = $visitants->random(min(20, $visitants->count()));
+            $selectedUsers = $users->random(min(20, $users->count()));
 
-            // Insertamos la relación meeting_user
-            foreach ($selectedVisitants as $user) {
-                // Evitamos duplicados
-                if (!$meeting->users->contains($user->id)) {
-                    $meeting->users()->attach($user->id);
-                }
+            // Asociamos los usuarios al meeting sin duplicar
+            foreach ($selectedUsers as $user) {
+                $meeting->users()->attach($user->id);
             }
         }
     }

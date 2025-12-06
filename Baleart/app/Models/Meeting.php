@@ -14,6 +14,7 @@ class Meeting extends Model
         'totalScore',
         'countScore'
     ];
+    public $timestamps = true;
 
     /* Relaciones */
 
@@ -34,8 +35,9 @@ class Meeting extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
+
 
     public function getAverageScoreAttribute()
     {

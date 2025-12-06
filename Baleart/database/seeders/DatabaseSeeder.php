@@ -3,32 +3,32 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Image;
+use App\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Seeders independientes primero
+        // Seeders 
         $this->call([
-            RolesSeeder::class,       // Roles: admin, guia, visitante
-            UsersSeeder::class,       // Usuarios: admin, guías
-            IslandsSeeder::class,     // Islas
-            ZonesSeeder::class,        // Zonas
+            RolesSeeder::class,
+            PlacesTypeSeeder::class,       
+            UsersSeeder::class,      
+            IslandsSeeder::class,     
+            ZonesSeeder::class,       
             MunicipalitiesSeeder::class,
-            //InterestingPlaceSeeder::class
+            TreksSeeder::class,
+            PlacesSeeder::class,      
+            MeetingsSeeder::class,    
+            MeetingUserSeeder::class,
+            InterestingPlaceSeeder::class
 
         ]);
 
-        // Seeders que dependen de los anteriores
-        $this->call([
-            TreksSeeder::class,       // Treks dependen de Zones e Islands
-            PlacesSeeder::class,      // Places dependen de Treks
-            MeetingsSeeder::class,    // Meetings dependen de Treks y Usuarios (guías)
-            MeetingUserSeeder::class  // Usuarios visitantes dependen de Meetings y Users
-        ]);
-
-        // Factories para generar datos adicionales
-        \App\Models\User::factory(10)->create();    // Usuarios de tipo visitante
-        \App\Models\Image::factory(20)->create();  // Imágenes
+        // Factories 
+        User::factory(10)->create(['role_id' => Role::where('name', 'visitant')->first()->id,]);   
+        Image::factory()->count(20)->create();  
     }
 }

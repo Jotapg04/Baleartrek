@@ -12,7 +12,7 @@ class Municipality extends Model
         'zone_id'
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     /* Relaciones */
 

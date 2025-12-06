@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Island extends Model
 {
     protected $fillable = ['name'];
-    public $timestamps = false;
+    public $timestamps = true;
 
     /* Relaciones */
 

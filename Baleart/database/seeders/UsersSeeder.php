@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
         $user->email_verified_at = now();
         $user->phone = '000000000';
         $user->password = Hash::make('12345678');
-        $user->role =  Role::where('name', 'admin')->first()->id;
+        $user->role_id =  Role::where('name', 'admin')->first()->id;
         $user->save();
 
 
@@ -37,7 +37,7 @@ class UsersSeeder extends Seeder
             $user->password = Hash::make($u['password']);
             $user->dni = $u['dni'];
             $user->phone = $u['telefon'];
-            $user->role = Role::where('name', 'guia')->first()->id;
+            $user->role_id = Role::where('name', 'guia')->first()->id;
             $user->save();
         }
     }

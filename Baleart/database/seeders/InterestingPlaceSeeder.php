@@ -7,7 +7,7 @@ use App\Models\Trek;
 use App\Models\PlaceType;
 use App\Models\InterestingPlace;
 
-class InterestingPlacesSeeder extends Seeder
+class InterestingPlaceSeeder extends Seeder
 {
     public function run(): void
     {
@@ -15,19 +15,18 @@ class InterestingPlacesSeeder extends Seeder
         $data = json_decode($jsonData, true);
 
         foreach ($data as $t) {
-            $trek = Trek::where('regNumber', $t['regNumber'])->first();
+            $trek = Trek::where('reg_number', $t['regNumber'])->first();
 
             foreach ($t['places_of_interest'] as $p) {
+
                 $placeType = PlaceType::firstOrCreate([
-                    'name' => $p['name'],
-                    'type' => $p['type'],
-                    'gpsPos' => $p['gpsPos'],
+                    'name' => $p['type']  
                 ]);
 
-                //La relacion con el trek
                 InterestingPlace::firstOrCreate([
-                    'trek_id' => $trek->id,
-                    'place_type_id' => $placeType->id,
+                    'name' => $p['name'],
+                    'gps' => $p['gpsPos'],
+                    'place_type_id' => $placeType->id
                 ]);
             }
         }
