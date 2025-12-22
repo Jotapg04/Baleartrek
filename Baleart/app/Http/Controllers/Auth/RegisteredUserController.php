@@ -4,38 +4,50 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function store(Request $request): Response
+    public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        $data = $request->validate([
+            'name'     => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'dni'      => 'required|string|max:255',
+            'email'    => 'required|email|unique:users',
+            'phone'    => 'required|string|max:255',
+            'password' => 'required|string|min:8'
+        ],[
+                    'name.required'      => 'El nom és obligatori.',
+                    'lastname.required'  => 'El cognom és obligatori.',
+                    'email.required'     => 'L\'email és obligatori.',
+                    'email.email'        => 'L\'email no té un format correcte.',
+                    'email.unique'       => 'Aquest email ja està registrat.',
+                    'password.required'  => 'La contrasenya és obligatòria.',
+                    'password.min'       => 'La contrasenya ha de tenir almenys 8 caràcters.',
+                ]
+
+    );
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->string('password')),
+            'name'     => $data['name'],
+            'lastname' => $data['lastname'],
+            'dni' => $data['dni'],
+            'email'    => $data['email'],
+            'phone' => $data['phone'],
+            'password' => Hash::make($data['password']),
+            'role_id' => Role::where('name', 'visitant')->first()->id
+            
         ]);
 
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return response()->noContent();
+        return response()->json([
+            'message' => 'User registered',
+            'user'    => [
+                'id'    => $user->id,
+                'email' => $user->email
+            ]
+        ], 201);
     }
 }

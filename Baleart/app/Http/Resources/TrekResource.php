@@ -16,12 +16,12 @@ class TrekResource extends JsonResource
             'available' => $this->available,
 
             'municipality' => [
-                'name'   => $this->municipality->name,
-                'zone'   => $this->municipality->zone->name,
-                'island' => $this->municipality->island->name,
+                'name'   => $this->municipality?->name,
+                'zone'   => $this->municipality?->zone->name,
+                'island' => $this->municipality?->island->name,
             ],
 
-            'places'   => $this->places,
+            'places'   => $this->interestingPlaces,
             'meetings' => $this->meetings,
         ];
     }

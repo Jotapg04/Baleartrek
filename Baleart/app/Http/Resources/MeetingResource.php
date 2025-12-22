@@ -12,8 +12,8 @@ class MeetingResource extends JsonResource
         return [
             'day'      => $this->day,
             'time'     => $this->time,
-            'users'    => $this->users,
-            'comments' => $this->comments,
+            'comment' => $this->comment,
+            'images'  => $this->images,
         ];
     }
 }
