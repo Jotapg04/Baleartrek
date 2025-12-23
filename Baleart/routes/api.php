@@ -13,36 +13,40 @@ use App\Models\Trek;
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 
-/*Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
-});*/
-Route::middleware('API-KEY')->group(function () {
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
+
+// ---- BINDINGS ----
+Route::bind('user', function ($value) {
+    return is_numeric($value)
+        ? User::findOrFail($value)
+        : User::where('email', $value)->firstOrFail();
 });
 
-// ---- CRUD USUARIOS ----
-Route::middleware('auth:sanctum')->group(function () {
+Route::bind('trek', function ($value) {
+    return is_numeric($value)
+        ? Trek::findOrFail($value)
+        : Trek::where('reg_number', $value)->firstOrFail();
+});
+
+
+// ---- RUTAS PROTEGIDAS ----
+Route::middleware('MULTI-AUTH')->group(function () {
+
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
+
+    // ---- CRUD USUARIOS ----
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/{user}', [UserController::class, 'show']);
     Route::put('/user/{user}', [UserController::class, 'update']);
     Route::patch('/user/{user}', [UserController::class, 'update']);
     Route::delete('/user/{user}', [UserController::class, 'destroy']);
 
-    //Filtrados
-    Route::bind('user', function ($value) {
-        return is_numeric($value)
-            ? User::findOrFail($value) // Cerca per 'id'
-            : User::where('email', $value)->firstOrFail(); // Cerca per 'email'
-    });
-});
-// ---- CRUD TREKS ----
-Route::middleware('auth:sanctum')->group(function () {
+    // ---- CRUD TREKS ----
     Route::get('/trek', [TrekController::class, 'index']);
     Route::get('/trek/{trek}', [TrekController::class, 'show']);
     Route::post('/trek', [TrekController::class, 'store']);
     Route::put('/trek/{trek}', [TrekController::class, 'update']);
     Route::patch('/trek/{trek}', [TrekController::class, 'update']);
 
-    //Filtrado
+    // ---- FILTRADO POR ISLA ----
     Route::get('/trek/island/{isla}', [TrekController::class, 'byIsland']);
 });

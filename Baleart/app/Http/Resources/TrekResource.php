@@ -10,7 +10,6 @@ class TrekResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'        => $this->id,
             'regNumber' => $this->reg_number,
             'name'      => $this->name,
             'available' => $this->available,
