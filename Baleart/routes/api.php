@@ -34,7 +34,7 @@ Route::middleware('MULTI-AUTH')->group(function () {
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
     // ---- CRUD USUARIOS ----
-    Route::get('/user', [UserController::class, 'index']);
+    Route::get('/user', [UserController::class, 'index'])->middleware('CHECK-ROLEADMIN');
     Route::get('/user/{user}', [UserController::class, 'show']);
     Route::put('/user/{user}', [UserController::class, 'update']);
     Route::patch('/user/{user}', [UserController::class, 'update']);
