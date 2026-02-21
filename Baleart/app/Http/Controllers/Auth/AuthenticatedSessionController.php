@@ -3,43 +3,45 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
-    public function store(Request $request)
+    /**
+     * Display the login view.
+     */
+    public function create(): View
     {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-
-        if (!Auth::attempt($request->only('email', 'password'))) {
-                return response()->json([
-                    'message' => 'Credencials d\'accés invàlides'
-                ], 401);
-        }
-
-        $user = $request->user();
-
-        return response()->json([
-            'token' => $user->createToken('auth-token')->plainTextToken,
-            'user'  => [
-                'id'    => $user->id,
-                'email' => $user->email
-            ]
-        ]);
+        return view('auth.login');
     }
 
-    public function destroy(Request $request)
+    /**
+     * Handle an incoming authentication request.
+     */
+    public function store(LoginRequest $request): RedirectResponse
     {
-        if($request-> user()){
-        $request->user()->currentAccessToken()->delete();
-        }
-        return response()->json([
-            'message' => 'Logged out'
-        ]);
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        return redirect()->intended(route('dashboard', absolute: false));
+    }
+
+    /**
+     * Destroy an authenticated session.
+     */
+    public function destroy(Request $request): RedirectResponse
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
-

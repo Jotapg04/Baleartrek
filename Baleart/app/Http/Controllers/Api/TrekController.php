@@ -10,17 +10,21 @@ use App\Http\Requests\TrekRequest;
 
 class TrekController extends Controller
 {
-    public function index(Request $request)
-    {
-        $treks = Trek::all();
-        return TrekResource::collection($treks);
+   
+public function index()
+{
+    // Añadimos 'meetings.comments' a la carga anidada
+    $treks = Trek::with(['municipality.island', 'meetings.comments'])->get();
+    return response()->json($treks);
+}
 
-    }
+public function show(Trek $trek) // Laravel ya buscó el trek por ti gracias al binding
+{
+    // Cargamos las relaciones necesarias para la ficha de React
+    $trek->load(['municipality.island', 'interestingPlaces']);
 
-    public function show(Trek $trek)
-    {
-        return new TrekResource($trek);
-    }
+    return response()->json($trek);
+}
 
     public function store(TrekRequest $request)
     {

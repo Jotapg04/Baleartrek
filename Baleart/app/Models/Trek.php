@@ -18,7 +18,8 @@ class Trek extends Model
 
     public function municipality()
     {
-        return $this->belongsTo(Municipality::class);
+        // Relación: municipality_id en la tabla treks apunta al id de municipalities
+        return $this->belongsTo(Municipality::class, 'municipality_id');
     }
 
     public function interestingPlaces()
@@ -32,7 +33,6 @@ class Trek extends Model
         return $this->hasMany(Meeting::class);
     }
 
-    /* OPCIONAL: cálculo dinámico sin triggers */
     public function getAverageScoreAttribute()
     {
         return $this->meetings->avg('average_score');
