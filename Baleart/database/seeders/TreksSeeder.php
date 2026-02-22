@@ -8,7 +8,7 @@ use App\Models\Meeting;
 use App\Models\Comment;
 use App\Models\User;
 use App\Models\Municipality;
-
+use Carbon\Carbon; // Añadimos Carbon para las fechas
 
 class TreksSeeder extends Seeder
 {
@@ -20,7 +20,7 @@ class TreksSeeder extends Seeder
         $adminUser = User::where('name', 'admin')->first();
 
         foreach ($data as $t) {
-            //Si no existe usa admin
+            // Si no existe usa admin
             $guide = isset($t['guide']) ? User::where('id', $t['guide'])->first() : $adminUser;
 
             $trek = Trek::create([
@@ -31,20 +31,30 @@ class TreksSeeder extends Seeder
             ]);
 
             foreach ($t['meetings'] as $m) {
+                // Calculamos las fechas de inscripción basándonos en el día del meeting
+                $eventDay = Carbon::parse($m['day']);
+                $dateIni = $eventDay->copy()->subMonth();
+                $dateEnd = $eventDay->copy()->subWeek();
+
                 $meeting = Meeting::create([
                     'trek_id' => $trek->id,
                     'day' => $m['day'],
                     'time' => $m['time'],
                     'guide_responsible_id' => User::where('dni', $m['DNI'])->first()->id,
+                    'appDateIni' => $dateIni->format('Y-m-d'), // AÑADIDO
+                    'appDateEnd' => $dateEnd->format('Y-m-d'), // AÑADIDO
                 ]);
 
                 foreach ($m['comments'] as $c) {
-                    Comment::create([
-                        'meeting_id' => $meeting->id,
-                        'user_id' => User::where('dni', $c['DNI'])->first()->id,
-                        'comment' => $c['comment'],
-                        'score' => $c['score'],
-                    ]);
+                    $user = User::where('dni', $c['DNI'])->first();
+                    if ($user) {
+                        Comment::create([
+                            'meeting_id' => $meeting->id,
+                            'user_id' => $user->id,
+                            'comment' => $c['comment'],
+                            'score' => $c['score'],
+                        ]);
+                    }
                 }
             }
         }

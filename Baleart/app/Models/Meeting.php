@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Meeting extends Model
 {
-   /* protected $fillable = [
+   protected $fillable = [
         'trek_id',
         'day',
         'time',
         'guide_responsible_id',
         'totalScore',
-        'countScore'
-    ];*/
+        'countScore',
+        'appDateIni',
+        'appDateEnd'
+    ];
     public $timestamps = true;
 
     /* Relaciones */

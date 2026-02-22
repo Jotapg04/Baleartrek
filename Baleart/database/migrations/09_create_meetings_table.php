@@ -14,6 +14,8 @@ return new class extends Migration
             $table->foreignId('guide_responsible_id')->constrained('users')->onUpdate('restrict')->onDelete('restrict');
             $table->date('day');
             $table->time('time');
+            $table->date("appDateIni");
+            $table->date("appDateEnd");
             $table->timestamps();
         });
     }

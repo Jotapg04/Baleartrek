@@ -24,6 +24,18 @@ class CommentControllerCRUD extends Controller
     }
 
     /**
+     * SHOW - Ver el detalle de un comentario específico
+     */
+    public function show(Comment $comment)
+    {
+        // Cargamos las relaciones para que la vista tenga los datos del usuario y la excursión
+        $comment->load(['user', 'meeting.trek']);
+
+        // Retornamos la vista que me enseñaste antes
+        return view('admin.comments.show', compact('comment'));
+    }
+
+    /**
      * EDIT - Formulario de edición
      */
     public function edit(Comment $comment)
@@ -34,22 +46,26 @@ class CommentControllerCRUD extends Controller
     /**
      * UPDATE - Actualizar el contenido
      */
-    public function update(Request $request, Comment $comment)
-    {
-        $validated = $request->validate([
-            'content' => 'required|string|min:3|max:1000',
-        ]);
+    public function update(Request $request, $id)
+{
+    // 1. Buscamos el comentario
+    $comment = Comment::findOrFail($id);
 
-        $comment->update($validated);
+    // 2. Validamos que el status sea 'y' o 'n'
+    $request->validate([
+        'status' => 'required|in:y,n',
+    ]);
 
-        // Forzamos el update de la fecha si solo se cambia el texto 
-        // y por alguna razón Eloquent no lo detecta (aunque debería)
-        $comment->touch();
+    // 3. Actualizamos solo el estado
+    $comment->status = $request->status;
+    $comment->save();
 
-        return redirect()
-            ->route('comments.index')
-            ->with('success', 'Comentario actualizado correctamente');
-    }
+    $comment->touch();
+
+    // 4. Redirigimos al INDEX de comentarios
+    return redirect()->route('comments.index')
+        ->with('success', 'El estado del comentario se ha actualizado correctamente.');
+}
 
     /**
      * DESTROY - Eliminar comentario e imágenes asociadas

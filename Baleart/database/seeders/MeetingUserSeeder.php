@@ -14,12 +14,14 @@ class MeetingUserSeeder extends Seeder
         $users = User::all();
 
         foreach ($meetings as $meeting) {
+            // Generamos un número aleatorio entre 5 y 30 para cada meeting
+            // Así algunos tendrán el guía acompañante (>=20) y otros no (<20)
+            $cantidad = rand(5, 30);
             
-            $selectedUsers = $users->random(min(20, $users->count()));
-
-            foreach ($selectedUsers as $user) {
-                $meeting->users()->attach($user->id);
-            }
+            // Tomamos usuarios aleatorios y los vinculamos
+            $asistentes = $users->random($cantidad)->pluck('id');
+            
+            $meeting->users()->attach($asistentes);
         }
     }
 }

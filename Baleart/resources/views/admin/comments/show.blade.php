@@ -1,51 +1,84 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Detalle del Comentario #{{ $comment->id }}
+            {{ __('Detalle del Comentario') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white shadow-sm sm:rounded-lg border border-gray-100 overflow-hidden">
-                <div class="p-8">
-                    <div class="mb-6">
-                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Autor</label>
-                        <p class="text-lg font-semibold text-gray-800">{{ $comment->user->name }} ({{ $comment->user->email }})</p>
-                    </div>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
 
-                    <div class="mb-6">
-                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Excursión Relacionada</label>
-                        <p class="text-lg text-gray-800">{{ $comment->meeting->trek->name }}</p>
-                    </div>
+                    <div class="comment-card pb-6 mb-6 last:border-b-0 last:mb-0">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Comentario #{{ $comment->id }}</h3>
+                                
+                                <p class="text-sm text-black-700 mb-1">
+                                    <span class="font-bold">Autor:</span> {{ $comment->user->name }} ({{ $comment->user->email }})
+                                </p>
+                                
+                                <p class="text-sm text-black-700 mb-1">
+                                    <span class="font-bold">Excursión:</span> {{ $comment->meeting->trek->name }}
+                                </p>
 
-                    <div class="mb-6">
-                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Contenido</label>
-                        <div class="bg-gray-50 p-4 rounded border border-gray-100 italic text-gray-700">
-                            "{{ $comment->comment }}"
+                                <p class="text-sm text-black-700 mb-1">
+                                    <span class="font-bold">Contenido:</span> 
+                                    <span class="px-2 py-0.5 rounded">
+                                        {{ $comment->comment }}
+                                    </span>
+                                </p>
+                                
+                                <p class="mb-2 text-sm">
+                                    <b>Estado:</b>
+                                    @if($comment->status === 'y')
+                                        <span class="text-green-600 font-semibold">Activo</span>
+                                    @else
+                                        <span class="text-red-600 font-semibold">Oculto</span>
+                                    @endif
+                                </p>
+
+                                <p class="mb-2 text-sm">
+                                    created at: {{ $comment->created_at }}
+                                </p>
+
+                                <p class="mb-4 text-sm">
+                                    updated at: {{ $comment->updated_at }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Fecha de creación</label>
-                            <p class="text-sm text-gray-600">{{ $comment->created_at->format('d/m/Y H:i') }}</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Última actualización</label>
-                            <p class="text-sm text-gray-600">{{ $comment->updated_at->format('d/m/Y H:i') }}</p>
-                        </div>
-                    </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex gap-2">
+                                <a href="{{ route('comments.index') }}" 
+                                   class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Show
+                                </a>
+                                <a href="{{ route('comments.edit', $comment->id) }}" 
+                                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Edit
+                                </a>
+                            </div>
 
-                    <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
-                        <a href="{{ route('comments.edit', $comment->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded transition">
-                            Editar
-                        </a>
-                        <a href="{{ route('comments.index') }}" class="text-gray-500 hover:text-gray-800 text-sm font-bold uppercase tracking-widest underline decoration-2 underline-offset-4">
-                            Volver al listado
-                        </a>
+                            <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" onsubmit="return confirm('¿Eliminar este comentario?')">
+                                @csrf
+                                @method('DELETE')
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                    Delete
+                                </button>
+                            </form>                     
+                        </div>
+                        
                     </div>
-                </div>
+                    
+                    </div>
+                    
+            </div>
+            <div class="mt-4">
+                <a href="{{ route('comments.index') }}" class="text-blue-600 hover:text-blue-900 transition font-medium">
+                    &larr; Volver al listado de comments
+                </a>
             </div>
         </div>
     </div>
