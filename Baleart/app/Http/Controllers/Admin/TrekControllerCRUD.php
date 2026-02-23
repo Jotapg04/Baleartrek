@@ -10,9 +10,7 @@ use App\Models\InterestingPlace;
 
 class TrekControllerCRUD extends Controller
 {
-    /**
-     * INDEX
-     */
+   
     public function index()
     {
         $treks = Trek::with(['municipality', 'interestingPlaces'])
@@ -22,9 +20,7 @@ class TrekControllerCRUD extends Controller
         return view('admin.treks.index', compact('treks'));
     }
 
-    /**
-     * SHOW
-     */
+
     public function show(Trek $trek)
     {
         $trek->load(['municipality', 'interestingPlaces']);
@@ -32,9 +28,46 @@ class TrekControllerCRUD extends Controller
         return view('admin.treks.show', compact('trek'));
     }
 
-    /**
-     * EDIT
-     */
+
+    public function create()
+    {
+        $municipalities = Municipality::all();
+        $interestingPlaces = InterestingPlace::orderBy('name')->get();
+
+        return view('admin.treks.create', compact(
+            'municipalities',
+            'interestingPlaces'
+        ));
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:100',
+            'status' => 'required|in:y,n',
+            'municipality_id' => 'required|exists:municipalities,id',
+            'interesting_places' => 'nullable|array',
+            'interesting_places.*' => 'exists:interesting_places,id',
+        ]);
+
+        $lastTrek = Trek::orderBy('id', 'desc')->first();
+        $nextNumber = $lastTrek ? ($lastTrek->id + 1) : 1;
+        
+       
+        $validated['reg_number'] = 'T' . str_pad($nextNumber, 2, '0', STR_PAD_LEFT);
+        $validated['user_id'] = 1; //es 1 porque es el admin 
+
+        $trek = Trek::create($validated);
+
+        if ($request->has('interesting_places')) {
+            $trek->interestingPlaces()->sync($request->interesting_places);
+        }
+
+        return redirect()
+            ->route('treks.index')
+            ->with('success', 'Excursión creada correctamente con registro ' . $validated['reg_number']);
+    }
+
     public function edit(Trek $trek)
     {
         $municipalities = Municipality::all();
@@ -47,9 +80,6 @@ class TrekControllerCRUD extends Controller
         ));
     }
 
-    /**
-     * UPDATE
-     */
     public function update(Request $request, Trek $trek)
     {
         $validated = $request->validate([
@@ -60,34 +90,28 @@ class TrekControllerCRUD extends Controller
 
         $trek->update($validated);
 
-        $trek->interestingPlaces()->sync(
-            $request->interesting_places ?? []
-        );
 
-        $trek->touch();
+        $trek->interestingPlaces()->sync($request->interesting_places ?? []);
+
+        $trek->touch(); // Actualiza el campo updated_at
 
         return redirect()
             ->route('treks.index')
-            ->with('success', 'Excursión actualizada');
+            ->with('success', 'Excursión actualizada correctamente');
     }
 
-    /**
-     * DELETE (igual filosofía que municipio)
-     */
+
     public function destroy(Trek $trek)
     {
-        // quitar lugares remarcables
+        
         $trek->interestingPlaces()->detach();
 
         foreach ($trek->meetings as $meeting) {
-
             foreach ($meeting->comments as $comment) {
                 $comment->images()->delete();
                 $comment->delete();
             }
-
             $meeting->users()->detach();
-
             $meeting->delete();
         }
 
@@ -96,40 +120,5 @@ class TrekControllerCRUD extends Controller
         return redirect()
             ->route('treks.index')
             ->with('success', 'Excursión eliminada');
-    }
-    /**
-     * FORM CREATE
-     */
-    public function create()
-    {
-        $municipalities = Municipality::all();
-        $places = InterestingPlace::orderBy('name')->get();
-
-        return view('admin.treks.create', compact(
-            'municipalities',
-            'interestingPlaces'
-        ));
-    }
-
-    /**
-     * STORE
-     */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'name' => 'required|max:100',
-            'status' => 'required|in:y,n',
-            'municipality_id' => 'required|exists:municipalities,id'
-        ]);
-
-        $trek = Trek::create($validated);
-
-        $trek->interestingPlaces()->sync(
-            $request->interesting_places ?? []
-        );
-
-        return redirect()
-            ->route('treks.index')
-            ->with('success', 'Excursión creada correctamente');
     }
 }

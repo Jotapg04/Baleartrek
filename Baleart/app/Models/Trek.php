@@ -10,7 +10,8 @@ class Trek extends Model
         'name',
         'reg_number',
         'municipality_id',
-        'available'
+        'available',
+        'user_id'
     ];
     public $timestamps = true;
 
