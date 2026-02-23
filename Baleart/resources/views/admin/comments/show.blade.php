@@ -46,6 +46,21 @@
                                 <p class="mb-4 text-sm">
                                     updated at: {{ $comment->updated_at }}
                                 </p>
+
+                                @if($comment->images->count() > 0)
+                                    <div class="flex flex-wrap gap-2 md:w-1/3 justify-start">
+                                        @foreach($comment->images as $image)
+                                            @php
+                                                $placeholderUrl = "https://loremflickr.com/400/400/mountain,trekking?lock=" . $image->id;
+                                            @endphp
+                                            <div class="relative group">
+                                                <img src="{{ $placeholderUrl }}" 
+                                                    alt="Imagen de {{ $comment->user->name }}" 
+                                                    class="w-20 h-20 object-cover rounded-lg shadow-sm transition group-hover:scale-105">
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
@@ -74,11 +89,6 @@
                     
                     </div>
                     
-            </div>
-            <div class="mt-4">
-                <a href="{{ route('comments.index') }}" class="text-blue-600 hover:text-blue-900 transition font-medium">
-                    &larr; Volver al listado de comments
-                </a>
             </div>
         </div>
     </div>

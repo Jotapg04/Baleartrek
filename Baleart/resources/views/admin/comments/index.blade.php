@@ -43,24 +43,27 @@
                                     @endif
                                 </p>
 
-                                <div class="text-xs text-gray-500">
+                                <div class="text-xs">
                                     <p>created at: {{ $comment->created_at }}</p>
                                     <p>updated at: {{ $comment->updated_at }}</p>
                                 </div>
+
+                                @if($comment->images->count() > 0)
+                                    <div class="mt-2 p-2">
+                                        <div class="flex flex-col gap-2"> {{-- Contenedor para separar cada bloque de imagen --}}
+                                            @foreach($comment->images as $image)
+                                                <div class="text-sm"> 
+                                                    <span class="font-bold">Imagen adjunta:</span>
+                                                    <a href="{{ $image->url }}" target="_blank" class="text-blue-500 hover:underline break-all ml-1">
+                                                        {{ $image->url }}
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
 
-                            {{-- IMÁGENES DEL COMENTARIO --}}
-                            @if($comment->images->count() > 0)
-                                <div class="flex flex-wrap gap-2 md:w-1/3 justify-start">
-                                    @foreach($comment->images as $image)
-                                        <div class="relative group">
-                                            <img src="{{ asset('storage/' . $image->path) }}" 
-                                                 alt="Imagen de {{ $comment->user->name }}" 
-                                                 class="w-20 h-20 object-cover rounded-lg shadow-sm transition group-hover:scale-105">
-                                        </div>
-                                    @endforeach
-                                </div>
-                            @endif
                         </div>
 
                         {{-- ACCIONES --}}
