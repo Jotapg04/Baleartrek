@@ -12,16 +12,31 @@ class CommentControllerCRUD extends Controller
     /**
      * INDEX - Listado de comentarios
      */
-    public function index()
-    {
-        // Cargamos las relaciones para evitar el problema N+1
-        // Suponiendo que Comment pertenece a User y a Meeting (y esta a Trek)
-        $comments = Comment::with(['user', 'meeting.trek'])
-            ->orderBy('created_at', 'desc')
-            ->paginate(15);
+    public function index(Request $request)
+{
+    $query = Comment::with(['user', 'meeting.trek']);
 
-        return view('admin.comments.index', compact('comments'));
+    // Filtro por Estado
+    if ($request->filled('status')) {
+        $query->where('status', $request->status);
     }
+
+    // Buscador (Nombre, Apellido o contenido del comentario)
+    if ($request->filled('search')) {
+        $search = $request->search;
+        $query->where(function($q) use ($search) {
+            $q->where('comment', 'like', "%{$search}%")
+              ->orWhereHas('user', function($u) use ($search) {
+                  $u->where('name', 'like', "%{$search}%")
+                    ->orWhere('lastName', 'like', "%{$search}%");
+              });
+        });
+    }
+
+    $comments = $query->orderBy('created_at', 'desc')->paginate(15);
+
+    return view('admin.comments.index', compact('comments'));
+}
 
     /**
      * SHOW - Ver el detalle de un comentario específico

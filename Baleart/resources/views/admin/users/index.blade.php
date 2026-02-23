@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Listado de Usuarios') }}
+            {{ __('Usuarios') }}
         </h2>
     </x-slot>
 
@@ -19,9 +19,6 @@
 
                     <div class="flex flex-col md:flex-row md:items-end gap-4">
                         <div class="w-full md:max-w-md">
-                            <label class="text-xs font-bold text-gray-500 uppercase mb-1 block">
-                                Filtrar Usuario
-                            </label>
 
                             <input
                                 type="text"
