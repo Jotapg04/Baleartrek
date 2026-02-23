@@ -26,7 +26,7 @@
                             <div>
                                 <label class="block mb-2 font-bold text-gray-700">Guía Responsable (Principal)</label>
                                 <select name="guide_responsible_id" class="w-full border-gray-300 rounded shadow-sm text-sm">
-                                    @foreach($allUsers as $user)
+                                    @foreach($guides as $user)
                                         <option value="{{ $user->id }}" {{ $meeting->guide_responsible_id == $user->id ? 'selected' : '' }}>
                                             {{ $user->name }} {{ $user->lastName }}
                                         </option>
@@ -39,7 +39,7 @@
                                 <label class="block mb-2 font-bold text-gray-700">Guía Acompañante</label>
                                 <select name="assistant_guide_id" class="w-full border-gray-300 rounded shadow-sm @error('assistant_guide_id') border-red-500 @enderror">
                                     <option value="">-- Seleccionar --</option>
-                                    @foreach($allUsers as $user)
+                                    @foreach($guides as $user)
                                         <option value="{{ $user->id }}" {{ $meeting->users->contains($user->id) ? 'selected' : '' }}>
                                             {{ $user->name }} {{ $user->lastName }}
                                         </option>

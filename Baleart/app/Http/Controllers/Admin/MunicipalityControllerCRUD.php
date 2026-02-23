@@ -49,6 +49,33 @@ class MunicipalityControllerCRUD extends Controller
         return redirect()->route('municipalities.index')->with('success', 'Municipio actualizado correctamente.');
     }
 
+    public function create()
+    {
+        // Necesitamos las islas y zonas para los desplegables del formulario
+        $islands = Island::all();
+        $zones = Zone::all();
+
+        return view('admin.municipalities.create', compact('islands', 'zones'));
+    }
+
+    /**
+     * STORE
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:municipalities,name',
+            'island_id' => 'required|exists:islands,id',
+            'zone_id' => 'required|exists:zones,id',
+        ]);
+
+        Municipality::create($validated);
+
+        return redirect()
+            ->route('municipalities.index')
+            ->with('success', 'Municipio creado correctamente.');
+    }
+
     public function destroy($id)
     {
         $municipality = Municipality::findOrFail($id);

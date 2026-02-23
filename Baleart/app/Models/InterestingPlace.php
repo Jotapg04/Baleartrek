@@ -8,7 +8,7 @@ class InterestingPlace extends Model
 {
     protected $fillable = [
         'name',
-        'gps_coordinates',
+        'gps',
         'place_type_id'
     ];
 

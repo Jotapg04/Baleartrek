@@ -75,11 +75,6 @@
                 </div>
             </div>
 
-            <div class="mt-4">
-                <a href="{{ route('interesting-places.index') }}" class="text-blue-600 hover:text-blue-900 transition font-medium">
-                    &larr; Volver al listado de lugares
-                </a>
-            </div>
         </div>
     </div>
 </x-app-layout>
