@@ -18,13 +18,6 @@
                 </div>
             </div>
 
-            {{-- Botón de retorno al listado --}}
-            <div class="mt-4">
-                <a href="{{ route('treks.index') }}" class="text-blue-600 hover:text-blue-900 transition font-medium">
-                    &larr; Volver al listado de excursiones
-                </a>
-            </div>
-
         </div>
     </div>
 

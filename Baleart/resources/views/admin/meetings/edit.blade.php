@@ -80,7 +80,8 @@
                         </div>
 
                         <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
-                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded transition text-sm shadow-sm">
+                            <button
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded gap-2 mt-6">
                                 ACTUALIZAR
                             </button>
 
