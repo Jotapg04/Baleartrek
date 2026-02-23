@@ -15,13 +15,6 @@
             <b class="text-gray-700">Zona:</b> {{ $municipality->zone->name }}
         </p>
 
-        {{-- ESTADÍSTICAS RELACIONADAS --}}
-        <p class="mb-4 text-sm">
-            <b class="text-gray-700">Excursiones vinculadas:</b> 
-            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
-                {{ $municipality->treks->count() }} rutas
-            </span>
-        </p>
 
         {{-- FECHAS DE CONTROL --}}
         <div class="mt-4 pt-4 border-t border-gray-100">
