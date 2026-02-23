@@ -35,11 +35,11 @@
             <div class="flex gap-2">
                 <a href="{{ route('interesting-places.show', $place->id) }}" 
                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition text-sm">
-                    Show
+                    Ver
                 </a>
                 <a href="{{ route('interesting-places.edit', $place->id) }}" 
                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition text-sm">
-                    Edit
+                    Editar
                 </a>
             </div>
 
@@ -47,7 +47,7 @@
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition text-sm">
-                    Delete
+                    Borrar
                 </button>
             </form>
         </div>

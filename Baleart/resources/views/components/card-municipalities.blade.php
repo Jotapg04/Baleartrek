@@ -38,7 +38,7 @@
             <div class="flex gap-x-2">
                 <a href="{{ route('municipalities.show', $municipality->id) }}"
                     class="bg-green-600 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded transition">
-                    Detalles
+                    Ver
                 </a>
 
                 <a href="{{ route('municipalities.edit', $municipality->id) }}"

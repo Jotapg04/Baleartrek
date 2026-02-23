@@ -71,11 +71,11 @@
                             <div class="flex gap-2">
                                 <a href="{{ route('comments.show', $comment->id) }}" 
                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition">
-                                    Show
+                                    Ver
                                 </a>
                                 <a href="{{ route('comments.edit', $comment->id) }}" 
                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
-                                    Edit
+                                    Editar
                                 </a>
                             </div>
 
@@ -83,7 +83,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition">
-                                    Delete
+                                    Borrar
                                 </button>
                             </form>
                         </div>

@@ -70,13 +70,13 @@
         {{-- BOTONES DE ACCIÓN --}}
         <div class="flex justify-between items-center mt-4">
             <div class="flex gap-2">
-                <a href="{{ route('meetings.show', $meeting->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition text-sm">Show</a>
-                <a href="{{ route('meetings.edit', $meeting->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition text-sm">Edit</a>
+                <a href="{{ route('meetings.show', $meeting->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition text-sm">Ver</a>
+                <a href="{{ route('meetings.edit', $meeting->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition text-sm">Editar</a>
             </div>
 
             <form action="{{ route('meetings.destroy', $meeting->id) }}" method="POST" onsubmit="return confirm('¿Borrar esta trobada?')">
                 @csrf @method('DELETE')
-                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition text-sm">Delete</button>
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition text-sm">Borrar</button>
             </form>
         </div>
     </div>
