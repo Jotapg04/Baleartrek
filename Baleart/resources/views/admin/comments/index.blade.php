@@ -16,7 +16,7 @@
                             {{-- INFORMACIÓN DEL TEXTO --}}
                             <div class="flex-1">
                                 <div class="flex items-center gap-4 mb-2">
-                                    <h3 class="text-xl font-bold text-gray-800">
+                                    <h3 class="text-xl font-bold ">
                                         {{ $comment->user->name }} {{ $comment->user->lastName }}
                                     </h3>
                                     {{-- SCORE / PUNTUACIÓN --}}
@@ -25,11 +25,11 @@
                                     </span>
                                 </div>
                                 
-                                <p class="text-sm text-gray-700 mb-1">
+                                <p class="text-sm  mb-1">
                                     <span class="font-bold">Excursión:</span> {{ $comment->meeting->trek->name }}
                                 </p>
                                 
-                                <p class="text-sm text-gray-700 mb-2 italic">
+                                <p class="text-sm  mb-2 ">
                                     <span class="font-bold not-italic">Comentario:</span> "{{ $comment->comment }}"
                                 </p>
 

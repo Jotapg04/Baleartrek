@@ -16,7 +16,7 @@
                                 <h3 class="text-xl font-bold text-gray-800 mb-2">Comentario #{{ $comment->id }}</h3>
                                 
                                 <p class="text-sm text-black-700 mb-1">
-                                    <span class="font-bold">Autor:</span> {{ $comment->user->name }} ({{ $comment->user->email }})
+                                    <span class="font-bold">Autor:</span> {{ $comment->user->name }} {{ $comment->user->lastName }} ({{ $comment->user->email }})
                                 </p>
                                 
                                 <p class="text-sm text-black-700 mb-1">
